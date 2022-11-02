@@ -5,7 +5,7 @@ let handler = async (m, { conn, command }) => {
 	conn.sendButton(m.chat, '*–––| Sukses |–––*', wm, await(await fetch(url)).buffer(), [['Next',`.${command}`]],m)
 }
 handler.command = /^(cogan)$/i
-handler.tags = ['random']
+handler.tags = ['internet']
 handler.help = ['cogan']
 handler.premium = false
 handler.limit = true
