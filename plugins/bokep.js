@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
  conn.sendFile(m.chat, sukses, 'attp.webp', '', m, false, { asSticker: true })
 }
 handler.help = ['bkp']
-handler.tags = ['hentai']
+handler.tags = ['hentai', 'premium']
 
 handler.command = /^(bkp)$/i
 handler.premium = false
