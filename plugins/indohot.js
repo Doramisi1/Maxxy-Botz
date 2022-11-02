@@ -3,8 +3,8 @@ let handler  = async (m, { conn }) => {
 	await m.reply('[❗] WAIT, Tunggu Sebentar')
   conn.reply(m.chat,`${pickRandom(global.hot)}`, m)
 }
-handler.help = ['bkp']
-handler.tags = ['hentai']
+handler.help = ['indohot']
+handler.tags = ['hentai', 'premium']
 handler.command = /^(indohot)$/i
 handler.owner = false
 handler.mods = false
