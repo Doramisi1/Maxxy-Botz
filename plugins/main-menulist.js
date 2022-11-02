@@ -118,7 +118,7 @@ if (teks == 'all') tags = {
 'tools': 'Tools',
 'nulis': 'MagerNulis & Logo',
 'audio': 'Audio',
-'jadibot': 'Jadi Bot',
+'jadibot': 'Jadibot',
 'maker': 'Maker',
 'berita': 'Berita',
 'database': 'Database',
@@ -211,7 +211,7 @@ if (teks == 'audio') tags = {
 'audio': 'Audio'
 }
 if (teks == 'jadibot') tags = {
-'jadibot': 'Jadi Bot'
+'jadibot': 'Jadibot'
 }
 if (teks == 'info') tags = {
 'info': 'Info'
@@ -277,7 +277,7 @@ rows: [
 {title: `${emot} Stikers`, rowId: ".? stiker", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Sᴛɪᴋᴇʀ"},
 {title: `${emot} Nulis`, rowId: ".? nulis", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Nᴜʟɪs"},
 {title: `${emot} Audio`, rowId: ".? audio", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Aᴜᴅɪᴏ"},
-{title: `${emot} Audio`, rowId: ".? jadibot", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ JadiBot"},
+{title: `${emot} jadibot`, rowId: ".? jadibot", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Jadibot"},
 {title: `${emot} Sound Menu`, rowId: ".soundmenu", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Sᴏᴜɴᴅ"},
 {title: `${emot} Group`, rowId: ".? group", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Gʀᴏᴜᴘ"},
 {title: `${emot} Admin`, rowId: ".? admin", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Aᴅᴍɪɴ"},
