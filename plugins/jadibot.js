@@ -70,7 +70,7 @@ const config = {
             setTimeout(() => {
                 conns.sendMessage(m.chat, { delete: scan.key } )
             }, 30000)
-            global.tryConnect[m.sender] += 1
+            global.tryConnect[m.sender] += 8
         }
         if (lastDisconnect && lastDisconnect.error && lastDisconnect.error.output && lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut && conn.ws.readyState !== WebSocket.CONNECTING) {
             global.tryConnect(true)
