@@ -26,7 +26,7 @@ let wit = moment.tz('Asia/Jayapura').format('HH:mm:ss')
 let wita = moment.tz('Asia/Makassar').format('HH:mm:ss')
 let wktuwib = `${wibh} H ${wibm} M ${wibs} S`
  
- let mode = global.opts['self'] ? 'Private' : 'Publik'
+ let mode = global.opts['Publik'] ? 'Private' : 'Publik'
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { age, exp, limit, level, role, registered, money} = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -118,6 +118,7 @@ if (teks == 'all') tags = {
 'tools': 'Tools',
 'nulis': 'MagerNulis & Logo',
 'audio': 'Audio',
+'jadibot': 'Jadi Bot',
 'maker': 'Maker',
 'berita': 'Berita',
 'database': 'Database',
@@ -276,6 +277,7 @@ rows: [
 {title: `${emot} Stikers`, rowId: ".? stiker", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Sᴛɪᴋᴇʀ"},
 {title: `${emot} Nulis`, rowId: ".? nulis", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Nᴜʟɪs"},
 {title: `${emot} Audio`, rowId: ".? audio", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Aᴜᴅɪᴏ"},
+{title: `${emot} Audio`, rowId: ".? jadibot", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ JadiBot"},
 {title: `${emot} Sound Menu`, rowId: ".soundmenu", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Sᴏᴜɴᴅ"},
 {title: `${emot} Group`, rowId: ".? group", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Gʀᴏᴜᴘ"},
 {title: `${emot} Admin`, rowId: ".? admin", description: "Mᴇɴᴀᴍᴘɪʟᴋᴀɴ Mᴇɴᴜ Aᴅᴍɪɴ"},
@@ -523,7 +525,7 @@ let almenu = `┏┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╼
 │◇ Dᴀᴛᴀʙᴀsᴇ: ${totalreg}
 ╰╸╳`
 let nomorwa = '0'
-let nomorowm1 = '6285380166282'
+let nomorowm1 = '6281368176386'
 let d1 = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
 let d2 = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 let d3= 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -545,7 +547,7 @@ throw e
 }
 handler.command = /^(tesm|\?)$/i
 
-handler.register = false
+handler.register = true
 handler.exp = 3
 
 export default handler
