@@ -41,7 +41,7 @@ export async function handler(chatUpdate) {
         if (!m)
             return
         m.exp = 0
-        m.limit = true
+        m.limit = false
         try {
             // TODO: use loop to insert data instead of this
             let user = global.db.data.users[m.sender]
@@ -57,7 +57,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.pasangan))
                     user.pasangan = ''
                 if (!('registered' in user))
-                    user.registered = true
+                    user.registered = false
                 if (!user.registered) {
                     if (!('name' in user))
                         user.name = m.name
@@ -75,7 +75,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.warn))
                     user.warn = 0
                 if (!isNumber(user.level))
-                    user.level = 1
+                    user.level = 0
                 if (!('role' in user))
                     user.role = 'Beginner'
                 if (!('autolevelup' in user))
@@ -84,11 +84,11 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.money))
                     user.money = 10000
                 if (!isNumber(user.atm))
-                    user.atm = 10000
+                    user.atm = 0
                 if (!isNumber(user.fullatm))
                     user.fullatm = 0
                 if (!isNumber(user.bank))
-                    user.bank = 10000
+                    user.bank = 0
                 if (!isNumber(user.health))
                     user.health = 100
                 if (!isNumber(user.potion))
@@ -209,7 +209,7 @@ export async function handler(chatUpdate) {
                     exp: 0,
                     limit: 1000,
                     lastclaim: 0,
-                    registered: true,
+                    registered: false,
                     name: m.name,
                     pasangan: '',
                     age: -1,
@@ -218,12 +218,12 @@ export async function handler(chatUpdate) {
                     afkReason: '',
                     banned: false,
                     warn: 0,
-                    level: 1,
+                    level: 0,
                     role: 'Beginner',
                     autolevelup: true,
                     money: 10000,
-                    bank: 10000,
-                    atm: 10000,
+                    bank: 0,
+                    atm: 0,
                     fullatm: 0,
                     health: 100,
                     potion: 10,
@@ -778,6 +778,32 @@ export async function groupsUpdate(groupsUpdate) {
         if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke)
         if (!text) continue
         await this.sendMessage(id, { text, mentions: this.parseMention(text) })
+    }
+}
+
+export async function deleteUpdate(message) {
+    try {
+        const { fromMe, id, participant } = message
+        if (fromMe)
+            return
+        let msg = this.serializeM(this.loadMessage(id))
+        if (!msg)
+            return
+        let chat = global.db.data.chats[msg.chat] || {}
+        if (chat.delete)
+            return
+            
+        await conn.send2ButtonDoc(msg.chat, `Terdeteksi @${participant.split`@`[0]} telah menghapus pesan*`, '\nMematikan fitur ini, Klik Button dibawah', 'Disable Antidelete', '.disable antidelete', 'Owner', '.Owner', msg, { contextInfo: { externalAdReply: {
+title: 'Hᴀʟᴏ BᴏsQ><',
+body: wm, 
+thumbnail: fs.readFileSync("./thumbnail.jpg"),
+mediaType:1,
+mediaUrl: "https://telegra.ph/file/1216a636cb2add65a34ae.jpg",
+sourceUrl: snh 
+}}})
+        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+    } catch (e) {
+        console.error(e)
     }
 }
 
